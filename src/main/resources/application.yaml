@@ -1,6 +1,57 @@
-server:
-  port: 8080
 
 spring:
   application:
     name: url-shortener
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 10000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=10000,expireAfterWrite=10m
+
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 5
+          min-idle: 2
+          max-wait: -1ms
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,metrics
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
