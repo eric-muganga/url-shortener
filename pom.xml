@@ -91,14 +91,19 @@
 			<artifactId>spring-boot-testcontainers</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Source: https://mvnrepository.com/artifact/org.testcontainers/junit-jupiter -->
 		<dependency>
 			<groupId>org.testcontainers</groupId>
-			<artifactId>testcontainers-junit-jupiter</artifactId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>1.21.4</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Source: https://mvnrepository.com/artifact/org.testcontainers/postgresql -->
 		<dependency>
 			<groupId>org.testcontainers</groupId>
-			<artifactId>testcontainers-postgresql</artifactId>
+			<artifactId>postgresql</artifactId>
+			<version>1.21.4</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -113,22 +118,29 @@
 			<artifactId>caffeine</artifactId>
 		</dependency>
 
-		<!-- Resilience (Circuit Breaker, Retry) -->
+
 		<dependency>
 			<groupId>io.github.resilience4j</groupId>
-			<artifactId>resilience4j-spring-boot3</artifactId>
+			<artifactId>resilience4j-circuitbreaker</artifactId>
 			<version>2.4.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>io.github.resilience4j</groupId>
+			<artifactId>resilience4j-retry</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.resilience4j</groupId>
+			<artifactId>resilience4j-all</artifactId>
+			<version>2.4.0</version>
+		</dependency>
 
 		<!-- Metrics & Observability -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
 
 	</dependencies>
