@@ -13,4 +13,7 @@ public interface UrlRepository extends JpaRepository<Url, Long> {
 
     @Query("SELECT u FROM Url u WHERE u.shortCode = ?1 AND u.isDeleted = false")
     Optional<Url> findActiveByShortCode(String shortCode);
+
+    @Query(value = "SELECT nextval('url_id_sequence')", nativeQuery = true)
+    Long getNextSequenceId();
 }
