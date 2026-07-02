@@ -1,0 +1,13 @@
+spring:
+  data:
+    redis:
+      repositories:
+        enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
