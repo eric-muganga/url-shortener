@@ -26,6 +26,12 @@ A Spring Boot URL shortener API with PostgreSQL persistence, Redis caching, Flyw
 - View cache metrics
 - Integration tests with PostgreSQL and Redis containers
 
+## Project Source
+
+This project is based on the roadmap.sh URL Shortening Service project:
+
+[roadmap.sh URL Shortening Service](https://roadmap.sh/projects/url-shortening-service)
+
 ## Run Locally with Docker
 
 Create a `.env` file from `.env.example`, then run:
